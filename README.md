@@ -117,15 +117,4 @@ Workflow defined in `.github/workflows/deploy.yml`.
 ## 🙌 Built by
 
 **Mathew Cherian**  
-Iron Panther DevOps, Mark III 🦾🐾
-
----
-
-## 🧠 Want to Extend It?
-
-- [ ] Add a custom domain via Route53
-- [ ] Add HTTPS using ACM + ALB HTTPS listener
-- [ ] Use Terraform modules and workspaces (prod/staging)
-- [ ] Tag Docker images with Git commit SHA or semver
-- [ ] Add a database (RDS, DynamoDB) and connect from ECS
 
