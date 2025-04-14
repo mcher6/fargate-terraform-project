@@ -1,0 +1,34 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+
+# Docker
+*.tar
+docker-compose.override.yml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+terraform.tfvars.json
+crash.log
+
+# AWS credentials (just in case)
+.aws/
+
+# VSCode / JetBrains / system files
+.vscode/
+.idea/
+.DS_Store
+
+# CodeBuild artifacts
+imagedefinitions.json
+
+# Build logs or temp files
+*.log
+

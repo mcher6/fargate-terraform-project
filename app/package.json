@@ -1,0 +1,13 @@
+{
+  "name": "fargate-app",
+  "version": "1.0.0",
+  "description": "Demo app for ECS Fargate deployment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "http": "*"
+  }
+}
+
