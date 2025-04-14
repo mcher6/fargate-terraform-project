@@ -1,10 +1,14 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const PORT = 80;
 
-const server = http.createServer((req, res) => {
-  res.end('🚀 Hello from ECS Fargate + CodeBuild + Terraform!');
+app.get('/', (req, res) => {
+  console.log('Health check hit');
+  res.status(200).send('OK');
 });
 
-server.listen(80, () => {
-  console.log('Server running on port 80');
+app.listen(80, '0.0.0.0', () => {
+  console.log("Server running on port 80");
 });
 
+// Demo deploy

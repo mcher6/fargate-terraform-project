@@ -61,23 +61,39 @@ resource "aws_ecs_task_definition" "app_task" {
   family                   = "my-app-task"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = "256"
-  memory                   = "512"
+  cpu                      = "512"     # 0.5 vCPU
+  memory                   = "1024"    # 1 GB RAM
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  container_definitions    = jsonencode([
+
+  container_definitions = jsonencode([
     {
       name      = "my-app"
       image     = "${aws_ecr_repository.app_repo.repository_url}:latest"
       essential = true
       portMappings = [
         {
-          containerPort = 80,
+          containerPort = 80
           hostPort      = 80
         }
-      ]
+      ],
+      logConfiguration = {
+        logDriver = "awslogs",
+        options = {
+          awslogs-group         = "/ecs/my-app"
+          awslogs-region        = var.aws_region
+          awslogs-stream-prefix = "ecs"
+        }
+      }
     }
   ])
 }
+
+resource "aws_cloudwatch_log_group" "ecs_logs" {
+  name              = "/ecs/my-app"
+  retention_in_days = 7
+}
+
+
 
 resource "aws_lb" "app_lb" {
   name               = "my-app-lb"
