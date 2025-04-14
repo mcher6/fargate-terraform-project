@@ -11,13 +11,6 @@ This project is a fully containerized, cloud-native Node.js web application depl
 
 ---
 
-## 🌍 Live Demo
-
-> http://<your-alb-dns>
-
-_(Replace with your actual ALB DNS from Terraform output)_
-
----
 
 ## 🧱 Project Architecture
 
